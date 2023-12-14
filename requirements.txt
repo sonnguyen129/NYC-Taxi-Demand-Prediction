@@ -9,4 +9,10 @@ fire
 lightgbm  
 comet-ml 
 retry
-jupyter 
+jupyter
+hopsworks 
+requests
+tqdm
+pandas
+scikit-learn
+plotly
