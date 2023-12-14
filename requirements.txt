@@ -8,4 +8,5 @@ discordwebhook
 fire 
 lightgbm  
 comet-ml 
-retry 
+retry
+jupyter 
