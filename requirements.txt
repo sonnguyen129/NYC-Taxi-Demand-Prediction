@@ -1,0 +1,11 @@
+pyarrow
+optuna
+python-dotenv
+streamlit 
+pydeck 
+geopandas  
+discordwebhook 
+fire 
+lightgbm  
+comet-ml 
+retry 
