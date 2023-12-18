@@ -19,7 +19,7 @@ st.set_page_config(layout="wide")
 
 # title
 # current_date = datetime.strptime('2023-01-05 12:00:00', '%Y-%m-%d %H:%M:%S')
-current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
+current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H') - timedelta(hours=3)
 st.title(f'Taxi demand prediction 🚕')
 st.header(f'{current_date} UTC')
 
@@ -105,7 +105,7 @@ with st.spinner(text="Downloading shape file to plot taxi zones"):
 with st.spinner(text="Fetching model predictions from the store"):
     predictions_df = _load_predictions_from_store(
         from_pickup_hour=current_date - timedelta(hours=1),
-        to_pickup_hour=current_date
+        to_pickup_hour=current_date 
     )
     st.sidebar.write('✅ Model predictions arrived')
     progress_bar.progress(2/N_STEPS)
