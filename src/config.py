@@ -57,7 +57,7 @@ FEATURE_VIEW_PREDICTIONS_METADATA = FeatureViewConfig(
 )
 
 MONITORING_FV_NAME = 'monitoring_feature_view'
-MONITORING_FV_VERSION = 4
+MONITORING_FV_VERSION = 1
 
 # number of historical values our model needs to generate predictions
 N_FEATURES = 24 * 28
