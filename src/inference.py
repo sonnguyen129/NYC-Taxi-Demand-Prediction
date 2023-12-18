@@ -74,6 +74,9 @@ def load_batch_of_features_from_store(
 
     # validate we are not missing data in the feature store
     location_ids = ts_data['pickup_location_id'].unique()
+    print(len(ts_data))
+    print(config.N_FEATURES * len(location_ids))
+
     assert len(ts_data) == config.N_FEATURES * len(location_ids), \
         "Time-series data is not complete. Make sure your feature pipeline is up and runnning."
 
