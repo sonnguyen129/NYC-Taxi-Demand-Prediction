@@ -74,8 +74,8 @@ def load_batch_of_features_from_store(
 
     # validate we are not missing data in the feature store
     location_ids = ts_data['pickup_location_id'].unique()
-    print(len(ts_data))
-    print(config.N_FEATURES * len(location_ids))
+    # print(len(ts_data))
+    # print(config.N_FEATURES * len(location_ids))
 
     assert len(ts_data) == config.N_FEATURES * len(location_ids), \
         "Time-series data is not complete. Make sure your feature pipeline is up and runnning."
@@ -151,7 +151,7 @@ def load_predictions_from_store(
         start_time=from_pickup_hour - timedelta(days=1),
         end_time=to_pickup_hour + timedelta(days=1)
     )
-    print(predictions.pickup_hour.min())
+    # print(predictions.pickup_hour.min())
 
     # make sure datetimes are UTC aware
     predictions['pickup_hour'] = pd.to_datetime(predictions['pickup_hour'], utc=True)
@@ -169,10 +169,10 @@ def load_predictions_from_store(
 
     return predictions
 
-if __name__ == "__main__":
-    current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
-    a = load_predictions_from_store(
-        from_pickup_hour=current_date - timedelta(hours=4),
-        to_pickup_hour=current_date - timedelta(hours=3)
-    )
-    print(a)
+# if __name__ == "__main__":
+#     current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
+#     a = load_predictions_from_store(
+#         from_pickup_hour=current_date - timedelta(hours=1),
+#         to_pickup_hour=current_date 
+#     )
+#     print(a)
