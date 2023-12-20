@@ -151,7 +151,7 @@ def load_predictions_from_store(
         start_time=from_pickup_hour - timedelta(days=1),
         end_time=to_pickup_hour + timedelta(days=1)
     )
-    # print(predictions.pickup_hour.min())
+    print(predictions.pickup_hour.min())
 
     # make sure datetimes are UTC aware
     predictions['pickup_hour'] = pd.to_datetime(predictions['pickup_hour'], utc=True)
