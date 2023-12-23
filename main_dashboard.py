@@ -1,5 +1,6 @@
 import zipfile 
 from datetime import datetime, timedelta
+import pytz
 
 import requests
 import numpy as np
@@ -19,9 +20,14 @@ st.set_page_config(layout="wide")
 
 # title
 # current_date = datetime.strptime('2023-01-05 12:00:00', '%Y-%m-%d %H:%M:%S')
-current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H') - timedelta(hours=3)
-st.title(f'Taxi demand prediction 🚕')
-st.header(f'{current_date} UTC')
+current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
+
+# tz_VN = pytz.timezone('Asia/Ho_Chi_Minh') 
+# vn_current_date = pd.to_datetime(datetime.now(tz_VN)).floor('H')
+
+st.title(f'Taxi demand prediction - Main dashboard 🚕')
+st.header(f'Current time: {current_date} (UTC)')
+# st.header(f'{vn_current_date} (Vietnam)')
 
 progress_bar = st.sidebar.header('⚙️ Working Progress')
 progress_bar = st.sidebar.progress(0)
