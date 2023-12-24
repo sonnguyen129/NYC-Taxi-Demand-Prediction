@@ -121,7 +121,7 @@ name: inference-pipeline
 on:
   # workflow_dispatch:
   schedule:
-   - cron: '0 * * * *'
+   - cron: '15 * * * *'
 
 jobs:
   test_schedule:
