@@ -62,6 +62,8 @@ def load_shape_data_file() -> gpd.geodataframe.GeoDataFrame:
     # load and return shape file
     return gpd.read_file(DATA_DIR / 'taxi_zones/taxi_zones.shp').to_crs('epsg:4326')
 
+def clear_cache():
+    st.runtime.legacy_caching.caching.clear_cache()
 
 @st.cache_data
 def _load_batch_of_features_from_store(current_date: datetime) -> pd.DataFrame:
@@ -102,6 +104,7 @@ def _load_predictions_from_store(
         pd.DataFrame: 2 columns: pickup_location_id, predicted_demand
     """
     return load_predictions_from_store(from_pickup_hour, to_pickup_hour)
+
 
 with st.spinner(text="Downloading shape file to plot taxi zones"):
     geo_df = load_shape_data_file()
@@ -239,3 +242,6 @@ with st.spinner(text="Plotting time-series data"):
         st.plotly_chart(fig, theme="streamlit", use_container_width=True, width=1000)
         
     progress_bar.progress(6/N_STEPS)
+
+
+st.sidebar.button("Refresh Program",on_click=clear_cache)
