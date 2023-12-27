@@ -169,10 +169,10 @@ def load_predictions_from_store(
 
     return predictions
 
-# if __name__ == "__main__":
-#     current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
-#     a = load_predictions_from_store(
-#         from_pickup_hour=current_date - timedelta(hours=1),
-#         to_pickup_hour=current_date 
-#     )
-#     print(a)
+if __name__ == "__main__":
+    current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
+    a = load_predictions_from_store(
+        from_pickup_hour=current_date - timedelta(hours=1),
+        to_pickup_hour=current_date 
+    )
+    print(a)
